@@ -1,6 +1,10 @@
 weekly-leaderboard
 ==================
 
+### [DEMO][]
+
+[DEMO]: http://209.182.232.227:5000/index.html
+
 This application is an example of a weekly ranking and reward system for a system with 10 million users, using mongodb and nodejs.
 
 Before running the application, check that your mongodb settings are correct under config folders.
@@ -29,7 +33,3 @@ $ npm start
 ```
 
 if you want to debug. I've prepared a lot of options for the vscode editor. You can use it there.
-
-### [DEMO][]
-
-[DEMO]: http://209.182.232.227:5000/index.html

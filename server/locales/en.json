@@ -1,0 +1,11 @@
+{
+    "error": {
+        "unknown": "An error has occurred, try again.",
+        "code": {
+            "notfound": "Routing could not be performed.",
+            "badrequest": "Bad request.",
+            "ua1": "Username is used.",
+            "sa1": "Incorrect user."
+        }
+    }
+}

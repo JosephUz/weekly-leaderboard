@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' />
+  
+  <meta name="author" content="JosephUz">
+  <title>JosephUz - Weekly-Leaderboard</title>
+  <!-- Favicon -->
+  <link href="./assets/img/brand/favicon.png" rel="icon" type="image/png">
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+  <!-- Icons -->
+  <link href="./assets/vendor/nucleo/css/nucleo.css" rel="stylesheet">
+  <link href="./assets/vendor/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
+  <!-- Optional Css -->
+  <script src="./src/css/spin.css" rel="stylesheet"></script>
+  <!-- Argon CSS -->
+  <link type="text/css" href="./assets/css/argon.css?v=1.0.0" rel="stylesheet">
+</head>
+
+<body>
+  <!-- Main content -->
+  <div class="main-content">
+    <!-- Top navbar -->
+    <nav class="navbar navbar-top navbar-expand-md navbar-dark" id="navbar-main">
+      <div class="container-fluid">
+        <!-- Brand -->
+        <a class="h4 mb-0 text-white text-uppercase d-none d-lg-inline-block" href="./index.html">Weekly-Leaderboard</a>
+      </div>
+    </nav>
+    <!-- Header -->
+    <div class="header bg-gradient-primary pb-8 pt-5 pt-md-8"> </div>
+
+    <!-- Page content -->
+    <div class="container-fluid mt--7">
+
+      <div class="row mt-5">
+
+        <div class="col-xl-4">
+          <div class="card shadow">
+            <div class="card-header border-0">
+              <div class="row align-items-center">
+                <div class="col">
+                  <h3 id="currentUserFld" class="mb-0">Current User</h3>
+                </div>
+              </div>
+            </div>
+            <div class="table-responsive">
+              <!-- Projects table -->
+              <div class="card-body">
+
+                <div role="form">
+                  <div class="form-group mb-3">
+                    <div class="input-group input-group-alternative">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="ni ni-single-02"></i></span>
+                      </div>
+                      <input id="userNameTxt" class="form-control" placeholder="Username" type="text" value="JosephUz">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="input-group input-group-alternative mb-3">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="ni ni-money-coins"></i></span>
+                      </div>
+                      <input id="scoreNbr" class="form-control" placeholder="Score" type="number">
+                    </div>
+                  </div>
+                  <div class="text-center">
+                    <button id="addBtn" type="button" class="btn btn-primary mt-4">Add</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-xl-8 mb-5 mb-xl-0">
+          <div class="card shadow">
+            <div class="card-header border-0">
+              <div class="row align-items-center">
+                <div class="col">
+                  <h3 class="mb-0">Leader Board</h3>
+                </div>
+                <div class="col text-right">
+                  <button id="refreshBtn" class="btn btn-sm btn-primary">Refresh</button>
+                </div>
+              </div>
+            </div>
+            <div class="table-responsive">
+              <!-- Projects table -->
+              <table class="table align-items-center table-flush">
+                <thead class="thead-light">
+                  <tr>
+                    <th scope="col">Rank</th>
+                    <th scope="col">Trend</th>
+                    <th scope="col">Username</th>
+                    <th scope="col">Score</th>
+                    <th scope="col">Age</th>
+                    <th scope="col">UserId</th>
+                  </tr>
+                </thead>
+                <tbody id="usersCntr"></tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <!-- Footer -->
+      <footer class="footer">
+        <div class="row align-items-center justify-content-xl-between">
+          <div class="col-xl-6">
+            <div class="copyright text-center text-xl-left text-muted">
+              <a href="https://github.com/JosephUz/weekly-leaderboard" class="font-weight-bold ml-1" target="_blank">JosephUz</a>
+            </div>
+          </div>
+          <div class="col-xl-6">
+            <ul class="nav nav-footer justify-content-center justify-content-xl-end">
+              <li class="nav-item">
+                <a href="https://www.creative-tim.com" class="nav-link" target="_blank">Creative Tim</a>
+              </li>
+              <li class="nav-item">
+                <a href="https://github.com/creativetimofficial/argon-dashboard/blob/master/LICENSE.md" class="nav-link"
+                  target="_blank">MIT License</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </div>
+
+  <!-- Page Templates -->
+  <template juel="users">
+    <juel>
+      {{ items(leaders, own) }}
+    </juel>
+  </template>
+
+  <template juel="user">
+    <tr>
+      <td>{{ rank }}.</td>
+      <td>
+        <i class="fas fa-arrow-up text-success mr-3 {{ hide(1) }}"></i>
+        <i class="fas fa-arrow-right text-gray mr-3 {{ hide(0) }}"></i>
+        <i class="fas fa-arrow-down text-danger mr-3 {{ hide(-1) }}"></i>
+        {{ rankChanges }}
+      </td>
+      <td>{{ userName }}</td>
+      <td>{{ score }}</td>
+      <td>{{ age }}</td>
+      <th>{{ userId }}</th>
+    </tr>
+  </template>
+
+  <!-- Argon Scripts -->
+  <!-- Core -->
+  <script src="./assets/vendor/jquery/dist/jquery.min.js"></script>
+  <script src="./assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Optional JS -->
+  <script src="./src/js/spin.js"></script>
+  <script src="./src/js/bootstrap-notify.js"></script>
+  <!-- Argon JS -->
+  <script src="./assets/js/argon.js?v=1.0.0"></script>
+  <!-- Page JS -->
+  <script src="./src/js/index.build.min.js"></script>
+</body>
+
+</html>

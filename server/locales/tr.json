@@ -1,0 +1,11 @@
+{
+    "error": {
+        "unknown": "Bir hata oluştu tekrar deneyin.",
+        "code": {
+            "notfound": "Yönlendirme yapılamamıştır.",
+            "badrequest": "Hatalı istek.",
+            "ua1": "Kullanıcı adı kullanılıyor.",
+            "sa1": "Hatalı kullanıcı."
+        }
+    }
+}

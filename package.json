@@ -1,0 +1,44 @@
+{
+  "name": "weekly-leaderboard",
+  "version": "1.0.0",
+  "description": "In MongoDb and Node.js, weekly leaderboard for 10 millions users.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "build": "gulp basic",
+    "test": "set NODE_ENV=test&&mocha --recursive --exit",
+    "dev": "set NODE_ENV=development&&node index.js"
+  },
+  "keywords": [
+    "weekly leaderboard"
+  ],
+  "author": "JosephUz",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "cookie-parser": "^1.4.3",
+    "cors": "^2.8.5",
+    "express": "^4.16.4",
+    "i18n-express": "^1.1.3",
+    "jang": "^1.0.2",
+    "joi": "^14.3.1",
+    "juel": "^1.0.2",
+    "jueue": "^1.0.2",
+    "mongodb": "^3.1.10",
+    "mongoose": "^5.4.3",
+    "node-schedule": "^1.3.1",
+    "request": "^2.88.0",
+    "week": "^0.2.0"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "chai-http": "^4.2.1",
+    "mocha": "^5.2.0",
+    "browserify": "^16.2.3",
+    "gulp": "^3.9.1",
+    "gulp-rename": "^1.4.0",
+    "gulp-streamify": "^1.0.2",
+    "gulp-uglify-es": "^1.0.4",
+    "vinyl-source-stream": "^2.0.0"
+  }
+}

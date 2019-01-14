@@ -3,7 +3,7 @@ weekly-leaderboard
 
 ### [DEMO][]
 
-[DEMO]: http://209.182.232.227:5000/index.html
+[DEMO]: http://weekly-leaderboard.josephuz.com/
 
 This application is an example of a weekly ranking and reward system for a system with 10 million users, using mongodb and nodejs.
 

@@ -13,7 +13,7 @@ function start() {
     }, e => {
         repositories.score.exists().then(check => {
             if (check)
-                e.next('done');
+                e.next('getFirst');
             else
                 e.next();
         });

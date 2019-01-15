@@ -38,10 +38,14 @@ function start() {
         repositories.score.setRank(e.date).then(() => {
             e.next();
         }).catch(e.throw);
+    }, function clone(e) {
+        repositories.score.clone(e.date).then(() => {
+            e.next();
+        }).catch(e.throw);
     }, function getGift(e) {
         repositories.gift.get(e.date).then(gift => {
             if (gift)
-                e.next('clone');
+                e.next('done');
             else
                 e.next();
         }).catch(e.throw);
@@ -52,10 +56,6 @@ function start() {
         }).catch(e.throw);
     }, function add(e) {
         repositories.gift.add(e.date, e.total).then(() => {
-            e.next();
-        }).catch(e.throw);
-    }, function clone(e) {
-        repositories.score.clone(e.date).then(() => {
             e.next();
         }).catch(e.throw);
     }, function done(e) {

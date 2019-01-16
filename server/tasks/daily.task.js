@@ -11,13 +11,6 @@ function start() {
             e.next();
         }).catch(e.throw);
     }, e => {
-        repositories.score.exists().then(check => {
-            if (check)
-                e.next('getFirst');
-            else
-                e.next();
-        });
-    }, e => {
         repositories.score.index().then(() => {
             e.next();
         }).catch(e.throw);

@@ -18,7 +18,7 @@ function start() {
             var interval = setInterval(() => {
                 post('/score/add', { userId: e.user.userId, score: Math.floor(Math.random() * 1000) });
                 index++;
-                if (index == 60)
+                if (index == 10)
                     clearInterval(interval);
             }, 1000);
         }
@@ -30,7 +30,7 @@ function start() {
 function job() {
     if (scheduling == null)
         scheduling = schedule.scheduleJob({ second: 0 }, function (date) {
-            for (var index = 0; index < 60; index++) {
+            for (var index = 0; index < 30; index++) {
                 start();
             }
         })
